@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pregunta extends Model
 {
-
     protected $table = 'tbl_preguntas';
     protected $primaryKey = 'idPregunta';
 
@@ -18,4 +17,9 @@ class Pregunta extends Model
         'imagen',
         'eliminado',
     ];
+
+    public function respuestas()
+    {
+        return $this->hasMany(Respuesta::class, 'idPregunta');
+    }
 }

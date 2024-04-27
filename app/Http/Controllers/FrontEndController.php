@@ -15,10 +15,9 @@ class FrontEndController extends Controller
 
     public function show($idFormulario): View
     {
-
         $formulario = Formulario::find($idFormulario);
 
-        $preguntas = Pregunta::where('idFormulario',$idFormulario)->get();
+        $preguntas = Pregunta::with('respuestas')->where('idFormulario',$idFormulario)->get();
 
         return view('formularios.show', compact('formulario','preguntas'));
     }

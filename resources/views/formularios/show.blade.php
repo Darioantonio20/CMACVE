@@ -20,6 +20,9 @@
                                     <div class="pregunta">
                                         <div class="indicaciones">{!!  $pregunta->instrucciones!!}</div>
                                         <h5>{{$pregunta->orden}} - {{$pregunta->pregunta}}</h5>
+                                        @foreach($pregunta->respuestas as $respuesta)
+                                            <p>{!! $respuesta->incisosPreguntas !!}</p>
+                                        @endforeach
                                     </div>
                                 </li>
                             @endforeach
